@@ -1,0 +1,15 @@
+{
+  "name": "ai-art-discovery",
+  "version": "1.0.0",
+  "description": "AI-powered art discovery app connecting users to artwork, music, film, books, and more",
+  "scripts": {
+    "backend": "cd backend && npm start",
+    "mobile": "cd mobile && npm start",
+    "install:backend": "cd backend && npm install",
+    "install:mobile": "cd mobile && npm install",
+    "install:all": "npm run install:backend && npm run install:mobile"
+  },
+  "keywords": ["ai", "art", "discovery", "recommendations", "mobile"],
+  "author": "",
+  "license": "MIT"
+}
