@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Pillars of Change Media</title>
+    <style>
+        /* ============================================
+           PILLARS OF CHANGE — ABOUT PAGE WIREFRAME
+           ============================================ */
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #333; background: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: #555; text-decoration: none; }
+        a:hover { color: #000; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .section-label {
+            font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+            color: #999; margin-bottom: 8px;
+        }
+        .section-title { font-size: 32px; font-weight: 700; color: #222; margin-bottom: 16px; }
+        .section-subtitle { font-size: 18px; color: #666; max-width: 640px; margin-bottom: 40px; }
+
+        .btn {
+            display: inline-block; padding: 14px 32px; font-size: 15px; font-weight: 600;
+            border-radius: 6px; cursor: pointer; transition: all 0.2s ease; border: none; text-align: center;
+        }
+        .btn-primary { background: #333; color: #fff; }
+        .btn-primary:hover { background: #000; color: #fff; }
+        .btn-secondary { background: #fff; color: #333; border: 2px solid #333; }
+        .btn-secondary:hover { background: #333; color: #fff; }
+        .btn-small { padding: 10px 20px; font-size: 13px; }
+
+        .placeholder-img {
+            background: #e8e8e8; border: 2px dashed #ccc; display: flex; align-items: center;
+            justify-content: center; color: #999; font-size: 14px; text-align: center; position: relative;
+        }
+        .placeholder-img::before { content: "\2715"; position: absolute; font-size: 48px; color: #ddd; }
+
+        .tag {
+            display: inline-block; padding: 4px 12px; font-size: 11px; text-transform: uppercase;
+            letter-spacing: 1px; font-weight: 600; border-radius: 3px; background: #f0f0f0; color: #666;
+        }
+
+        /* --- Header --- */
+        .site-header {
+            position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #e0e0e0;
+        }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .logo { font-size: 18px; font-weight: 800; color: #222; letter-spacing: -0.5px; }
+        .logo span { color: #888; font-weight: 400; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { font-size: 14px; font-weight: 500; color: #555; transition: color 0.2s; }
+        .nav-links a:hover { color: #000; }
+        .nav-cta {
+            background: #333; color: #fff !important; padding: 10px 22px; border-radius: 6px; font-weight: 600;
+        }
+        .nav-cta:hover { background: #000; }
+        .mobile-menu-toggle {
+            display: none; background: none; border: none; font-size: 24px; cursor: pointer; padding: 8px; color: #333;
+        }
+
+        /* --- Page Hero --- */
+        .page-hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(180deg, #f8f8f8 0%, #fff 100%);
+            border-bottom: 1px solid #eee;
+        }
+        .page-hero .section-label { margin-bottom: 12px; }
+        .page-hero-title {
+            font-size: 48px; font-weight: 800; line-height: 1.1; color: #111; margin-bottom: 20px; letter-spacing: -1px;
+        }
+        .page-hero-desc {
+            font-size: 20px; color: #555; line-height: 1.7; max-width: 700px;
+        }
+
+        /* --- Story Section --- */
+        .story-section { padding: 100px 0; }
+        .story-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+        }
+        .story-image { width: 100%; height: 400px; border-radius: 12px; }
+        .story-text h2 { font-size: 28px; font-weight: 700; color: #222; margin-bottom: 20px; }
+        .story-text p { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 16px; }
+        .story-text .highlight {
+            font-size: 20px; font-weight: 600; color: #333; border-left: 4px solid #999;
+            padding-left: 20px; margin: 28px 0; line-height: 1.6;
+        }
+
+        /* --- Pillars Detailed --- */
+        .pillars-detail { padding: 100px 0; background: #f5f5f5; border-top: 1px solid #e5e5e5; }
+        .pillars-detail-header { text-align: center; margin-bottom: 60px; }
+        .pillars-detail-header .section-subtitle { margin-left: auto; margin-right: auto; }
+
+        .pillar-row {
+            display: grid; grid-template-columns: 80px 1fr; gap: 24px; align-items: start;
+            padding: 32px; background: #fff; border: 1px solid #e0e0e0; border-radius: 12px;
+            margin-bottom: 20px; transition: box-shadow 0.2s;
+        }
+        .pillar-row:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        .pillar-row-icon {
+            width: 80px; height: 80px; border-radius: 12px; font-size: 11px;
+        }
+        .pillar-row-content h3 { font-size: 20px; font-weight: 700; color: #222; margin-bottom: 8px; }
+        .pillar-row-content p { font-size: 15px; color: #666; line-height: 1.7; }
+
+        /* --- Business Model --- */
+        .model-section { padding: 100px 0; }
+        .model-header { text-align: center; margin-bottom: 60px; }
+        .model-header .section-subtitle { margin-left: auto; margin-right: auto; }
+
+        .model-flow {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center;
+        }
+        .model-step {
+            padding: 36px 20px; border: 1px solid #e0e0e0; border-radius: 12px; background: #fafafa;
+            position: relative;
+        }
+        .model-step-num {
+            width: 40px; height: 40px; background: #333; color: #fff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 16px;
+            font-weight: 700; margin: 0 auto 16px;
+        }
+        .model-step h4 { font-size: 16px; font-weight: 700; color: #222; margin-bottom: 10px; }
+        .model-step p { font-size: 14px; color: #777; line-height: 1.6; }
+        .model-arrow {
+            display: none; /* shown via pseudo element or separate design in production */
+        }
+
+        /* --- Team Section --- */
+        .team-section { padding: 100px 0; background: #fff; border-top: 1px solid #eee; }
+        .team-header { text-align: center; margin-bottom: 60px; }
+        .team-header .section-subtitle { margin-left: auto; margin-right: auto; }
+
+        .team-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+        }
+        .team-card { text-align: center; }
+        .team-photo {
+            width: 100%; height: 260px; border-radius: 12px; margin-bottom: 20px;
+        }
+        .team-card h3 { font-size: 18px; font-weight: 700; color: #222; margin-bottom: 4px; }
+        .team-card .team-role { font-size: 14px; color: #888; margin-bottom: 12px; }
+        .team-card p { font-size: 14px; color: #666; line-height: 1.6; }
+
+        /* --- Partnership --- */
+        .partnership-section {
+            padding: 100px 0; background: #1a1a1a; color: #fff;
+        }
+        .partnership-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+        }
+        .partnership-text .section-label { color: #888; }
+        .partnership-text .section-title { color: #fff; }
+        .partnership-text p { font-size: 16px; color: #aaa; line-height: 1.8; margin-bottom: 16px; }
+        .partnership-text .btn-primary { background: #fff; color: #222; }
+        .partnership-text .btn-primary:hover { background: #e0e0e0; }
+        .partnership-image { width: 100%; height: 320px; border-radius: 12px; }
+
+        /* --- Timeline --- */
+        .timeline-section { padding: 100px 0; background: #fafafa; border-top: 1px solid #eee; }
+        .timeline-header { text-align: center; margin-bottom: 60px; }
+        .timeline-header .section-subtitle { margin-left: auto; margin-right: auto; }
+
+        .timeline {
+            max-width: 720px; margin: 0 auto; position: relative;
+            padding-left: 40px; border-left: 2px solid #ddd;
+        }
+        .timeline-item { position: relative; padding-bottom: 48px; }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .timeline-dot {
+            width: 16px; height: 16px; background: #333; border-radius: 50%;
+            position: absolute; left: -49px; top: 4px;
+        }
+        .timeline-year {
+            font-size: 13px; font-weight: 700; color: #999; text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 6px;
+        }
+        .timeline-item h4 { font-size: 18px; font-weight: 700; color: #222; margin-bottom: 8px; }
+        .timeline-item p { font-size: 15px; color: #666; line-height: 1.6; }
+
+        /* --- Footer --- */
+        .site-footer { background: #1a1a1a; color: #ccc; padding: 80px 0 40px; }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px;
+        }
+        .footer-brand .logo { color: #fff; margin-bottom: 16px; display: inline-block; }
+        .footer-brand p { font-size: 14px; color: #888; line-height: 1.7; margin-bottom: 24px; max-width: 300px; }
+        .social-links { display: flex; gap: 12px; }
+        .social-link {
+            width: 40px; height: 40px; background: #333; border-radius: 8px; display: flex;
+            align-items: center; justify-content: center; font-size: 11px; color: #999; transition: background 0.2s;
+        }
+        .social-link:hover { background: #444; color: #fff; }
+        .footer-column h4 {
+            font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            color: #fff; margin-bottom: 20px;
+        }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 12px; }
+        .footer-column a { font-size: 14px; color: #888; transition: color 0.2s; }
+        .footer-column a:hover { color: #fff; }
+        .footer-bottom {
+            border-top: 1px solid #333; padding-top: 30px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-bottom p { font-size: 13px; color: #666; }
+        .footer-legal { display: flex; gap: 24px; }
+        .footer-legal a { font-size: 13px; color: #666; }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .model-flow { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: block; }
+            .page-hero-title { font-size: 34px; }
+            .story-grid { grid-template-columns: 1fr; gap: 40px; }
+            .partnership-grid { grid-template-columns: 1fr; gap: 40px; }
+            .team-grid { grid-template-columns: 1fr 1fr; }
+            .model-flow { grid-template-columns: 1fr; }
+            .pillar-row { grid-template-columns: 1fr; }
+            .pillar-row-icon { margin: 0 auto; }
+            .pillar-row-content { text-align: center; }
+            .section-title { font-size: 26px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .team-grid { grid-template-columns: 1fr; }
+            .page-hero-title { font-size: 28px; }
+        }
+
+        .wireframe-badge {
+            position: fixed; bottom: 16px; right: 16px; background: #333; color: #fff;
+            font-size: 11px; padding: 6px 14px; border-radius: 4px; z-index: 999;
+            font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wireframe-badge">Wireframe</div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">PILLARS <span>of Change</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="shows.html">Shows</a></li>
+                    <li><a href="#pillars">Pillars</a></li>
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="shows.html" class="nav-cta">Listen Now</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Menu">&#9776;</button>
+        </div>
+    </header>
+
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="page-hero">
+        <div class="container">
+            <p class="section-label">About Us</p>
+            <h1 class="page-hero-title">We Believe Stories Can Change the World</h1>
+            <p class="page-hero-desc">
+                Pillars of Change Media is a purpose-driven content studio founded on the belief that
+                powerful storytelling can create measurable social impact and amplify the voices
+                that need to be heard most.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== OUR STORY ==================== -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="placeholder-img story-image">Founder / Company Photo</div>
+                <div class="story-text">
+                    <p class="section-label">Our Story</p>
+                    <h2>Built on Purpose, Driven by Impact</h2>
+                    <p>
+                        Pillars of Change Media was founded by H.J. Taylor with a clear vision: to build
+                        a media company where every piece of content serves a greater purpose. From our
+                        headquarters in New York, we produce podcasts, vodcasts, digital experiences,
+                        immersive experiences, and digital applications that don't just entertain — they
+                        activate.
+                    </p>
+                    <div class="highlight">
+                        "We don't just tell stories. We turn audience engagement into advocacy and funding
+                        for the communities that need it most."
+                    </div>
+                    <p>
+                        Our integrated philanthropy model means that a percentage of every dollar we earn
+                        goes directly to nonprofits and communities aligned with our mission. We partner
+                        with organizations like the UPI Loan Fund, a Community Development Financial
+                        Institution (CDFI), to ensure our impact is both tangible and lasting.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FIVE PILLARS DETAILED ==================== -->
+    <section class="pillars-detail" id="pillars">
+        <div class="container">
+            <div class="pillars-detail-header">
+                <p class="section-label">Our Foundation</p>
+                <h2 class="section-title">The Five Pillars of Change</h2>
+                <p class="section-subtitle">
+                    Every project, partnership, and piece of content we create is guided by these five
+                    pillars. They are our compass for driving real-world impact.
+                </p>
+            </div>
+
+            <div class="pillar-row">
+                <div class="placeholder-img pillar-row-icon">Icon</div>
+                <div class="pillar-row-content">
+                    <h3>Human Rights</h3>
+                    <p>
+                        We believe in the inherent dignity and equal rights of every person. Our content
+                        highlights stories of resilience, resistance, and the ongoing fight for basic
+                        freedoms — from LGBTQ+ rights around the globe to refugee experiences and beyond.
+                        Through programming like "Pride This Way," we bring visibility to communities
+                        whose stories demand to be told.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pillar-row">
+                <div class="placeholder-img pillar-row-icon">Icon</div>
+                <div class="pillar-row-content">
+                    <h3>Social Justice</h3>
+                    <p>
+                        Systemic inequities don't dismantle themselves. Our social justice pillar drives
+                        content that investigates and exposes failures in our institutions while
+                        highlighting the changemakers working to fix them. "Court on Trial" is our
+                        flagship social justice program, examining how the legal system impacts
+                        marginalized communities.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pillar-row">
+                <div class="placeholder-img pillar-row-icon">Icon</div>
+                <div class="pillar-row-content">
+                    <h3>Education</h3>
+                    <p>
+                        Access to quality education is a fundamental right, yet millions are denied it.
+                        We create content that expands access to knowledge, highlights innovative
+                        educational models, and supports lifelong learning initiatives in underserved
+                        communities.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pillar-row">
+                <div class="placeholder-img pillar-row-icon">Icon</div>
+                <div class="pillar-row-content">
+                    <h3>Health &amp; Wellness</h3>
+                    <p>
+                        True wellness encompasses physical, mental, and emotional health. Our programming
+                        promotes holistic well-being, challenges health disparities, and advocates for
+                        equitable access to healthcare resources in communities that have historically
+                        been underserved.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pillar-row">
+                <div class="placeholder-img pillar-row-icon">Icon</div>
+                <div class="pillar-row-content">
+                    <h3>Food Insecurity</h3>
+                    <p>
+                        Hunger is not a scarcity problem — it's a distribution and equity problem. We
+                        address food insecurity through storytelling that exposes the root causes, uplifts
+                        community-driven solutions, and channels funding toward building sustainable food
+                        systems for those who need them most.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BUSINESS MODEL ==================== -->
+    <section class="model-section">
+        <div class="container">
+            <div class="model-header">
+                <p class="section-label">How It Works</p>
+                <h2 class="section-title">Philanthropy Built Into Every Dollar</h2>
+                <p class="section-subtitle">
+                    Our business model integrates philanthropy at its core. Here's how every story
+                    we tell generates real-world impact.
+                </p>
+            </div>
+            <div class="model-flow">
+                <div class="model-step">
+                    <div class="model-step-num">1</div>
+                    <h4>Create Content</h4>
+                    <p>We produce podcasts, vodcasts, digital and immersive experiences rooted in our five pillars.</p>
+                </div>
+                <div class="model-step">
+                    <div class="model-step-num">2</div>
+                    <h4>Grow Audience</h4>
+                    <p>Our stories reach and engage audiences who care about social impact and underrepresented voices.</p>
+                </div>
+                <div class="model-step">
+                    <div class="model-step-num">3</div>
+                    <h4>Generate Revenue</h4>
+                    <p>Through sponsorships, partnerships, licensing, and direct audience support, we build sustainable revenue.</p>
+                </div>
+                <div class="model-step">
+                    <div class="model-step-num">4</div>
+                    <h4>Donate &amp; Invest</h4>
+                    <p>A percentage of profits is donated to nonprofits and communities through partners like UPI Loan Fund.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TEAM ==================== -->
+    <section class="team-section">
+        <div class="container">
+            <div class="team-header">
+                <p class="section-label">Our Team</p>
+                <h2 class="section-title">The People Behind the Pillars</h2>
+                <p class="section-subtitle">
+                    A passionate group of creators, producers, and advocates dedicated to building
+                    media that matters.
+                </p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="placeholder-img team-photo">Headshot</div>
+                    <h3>H.J. Taylor</h3>
+                    <p class="team-role">Founder &amp; CEO</p>
+                    <p>Visionary leader behind Pillars of Change Media, driving the mission to turn storytelling into social impact.</p>
+                </div>
+                <div class="team-card">
+                    <div class="placeholder-img team-photo">Headshot</div>
+                    <h3>Mandy Goldberg</h3>
+                    <p class="team-role">Producer</p>
+                    <p>Award-caliber producer bringing creative excellence to every show and experience in the POC portfolio.</p>
+                </div>
+                <div class="team-card">
+                    <div class="placeholder-img team-photo">Headshot</div>
+                    <h3>Soraya Vivian</h3>
+                    <p class="team-role">Host, Pride This Way</p>
+                    <p>Dynamic host and storyteller bringing LGBTQ+ culture and global Pride celebrations to audiences everywhere.</p>
+                </div>
+                <div class="team-card">
+                    <div class="placeholder-img team-photo">Headshot</div>
+                    <h3>Cris Wright</h3>
+                    <p class="team-role">Host, Court on Trial</p>
+                    <p>Investigative voice of Court on Trial, challenging the justice system and demanding accountability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== UPI LOAN FUND PARTNERSHIP ==================== -->
+    <section class="partnership-section">
+        <div class="container">
+            <div class="partnership-grid">
+                <div class="partnership-text">
+                    <p class="section-label">Flagship Partnership</p>
+                    <h2 class="section-title">UPI Loan Fund (CDFI)</h2>
+                    <p>
+                        Our partnership with the UPI Loan Fund, a certified Community Development Financial
+                        Institution, is central to how we translate media revenue into tangible community impact.
+                    </p>
+                    <p>
+                        CDFIs like UPI provide affordable lending, financial services, and development support
+                        to underserved communities that traditional financial institutions often overlook.
+                        By channeling a portion of our profits through UPI, we ensure that the communities
+                        represented in our storytelling receive direct economic benefit.
+                    </p>
+                    <a href="impact.html" class="btn btn-primary" style="margin-top: 12px;">Learn About Our Impact</a>
+                </div>
+                <div class="placeholder-img partnership-image">UPI Loan Fund / Partnership Image</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TIMELINE ==================== -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="timeline-header">
+                <p class="section-label">Our Journey</p>
+                <h2 class="section-title">Milestones</h2>
+                <p class="section-subtitle">
+                    From concept to launch, here's how Pillars of Change Media has grown
+                    into a purpose-driven content studio.
+                </p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-year">2024</p>
+                    <h4>The Vision Takes Shape</h4>
+                    <p>H.J. Taylor conceives Pillars of Change Media, outlining the five pillars and the integrated philanthropy model that would become the company's foundation.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-year">2025</p>
+                    <h4>Pillars of Change, LLC Founded</h4>
+                    <p>The company is officially established in New York. Key team members including Mandy Goldberg join to build the content studio's production infrastructure.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-year">2025</p>
+                    <h4>UPI Loan Fund Partnership</h4>
+                    <p>Pillars of Change forms its flagship nonprofit partnership with UPI Loan Fund, a certified CDFI, creating a direct pipeline from media revenue to community investment.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-year">2026</p>
+                    <h4>Launch Programming Premieres</h4>
+                    <p>"Pride This Way" with Soraya Vivian and "Court on Trial" with Cris Wright debut as the studio's inaugural shows, covering LGBTQ+ culture and justice reform respectively.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-year">2026 &amp; Beyond</p>
+                    <h4>Expanding the Impact</h4>
+                    <p>New programming across all five pillars, expansion into immersive and digital experiences, and deeper community partnerships to amplify underrepresented voices worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">PILLARS <span>of Change</span></a>
+                    <p>
+                        A purpose-driven content studio turning powerful storytelling
+                        into measurable social impact.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                        <a href="#" class="social-link" aria-label="YouTube">YT</a>
+                        <a href="#" class="social-link" aria-label="X / Twitter">X</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">LI</a>
+                        <a href="#" class="social-link" aria-label="TikTok">TT</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Shows</h4>
+                    <ul>
+                        <li><a href="show-detail.html">Pride This Way</a></li>
+                        <li><a href="#">Court on Trial</a></li>
+                        <li><a href="shows.html">All Programming</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="impact.html">Impact</a></li>
+                        <li><a href="#pillars">Our Pillars</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="contact.html">Press Inquiries</a></li>
+                        <li><a href="contact.html">Partnerships</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pillars of Change, LLC. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

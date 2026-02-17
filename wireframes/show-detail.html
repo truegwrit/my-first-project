@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pride This Way — Pillars of Change Media</title>
+    <style>
+        /* ============================================
+           PILLARS OF CHANGE — SHOW DETAIL WIREFRAME
+           ============================================ */
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #333; background: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: #555; text-decoration: none; }
+        a:hover { color: #000; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .section-label {
+            font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+            color: #999; margin-bottom: 8px;
+        }
+        .section-title { font-size: 32px; font-weight: 700; color: #222; margin-bottom: 16px; }
+        .section-subtitle { font-size: 18px; color: #666; max-width: 640px; margin-bottom: 40px; }
+
+        .btn {
+            display: inline-block; padding: 14px 32px; font-size: 15px; font-weight: 600;
+            border-radius: 6px; cursor: pointer; transition: all 0.2s ease; border: none; text-align: center;
+        }
+        .btn-primary { background: #333; color: #fff; }
+        .btn-primary:hover { background: #000; color: #fff; }
+        .btn-secondary { background: #fff; color: #333; border: 2px solid #333; }
+        .btn-secondary:hover { background: #333; color: #fff; }
+        .btn-small { padding: 10px 20px; font-size: 13px; }
+
+        .placeholder-img {
+            background: #e8e8e8; border: 2px dashed #ccc; display: flex; align-items: center;
+            justify-content: center; color: #999; font-size: 14px; text-align: center; position: relative;
+        }
+        .placeholder-img::before { content: "\2715"; position: absolute; font-size: 48px; color: #ddd; }
+
+        .tag {
+            display: inline-block; padding: 4px 12px; font-size: 11px; text-transform: uppercase;
+            letter-spacing: 1px; font-weight: 600; border-radius: 3px; background: #f0f0f0; color: #666;
+        }
+
+        /* --- Header --- */
+        .site-header {
+            position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #e0e0e0;
+        }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .logo { font-size: 18px; font-weight: 800; color: #222; letter-spacing: -0.5px; }
+        .logo span { color: #888; font-weight: 400; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { font-size: 14px; font-weight: 500; color: #555; transition: color 0.2s; }
+        .nav-links a:hover { color: #000; }
+        .nav-cta {
+            background: #333; color: #fff !important; padding: 10px 22px; border-radius: 6px; font-weight: 600;
+        }
+        .nav-cta:hover { background: #000; }
+        .mobile-menu-toggle {
+            display: none; background: none; border: none; font-size: 24px; cursor: pointer; padding: 8px; color: #333;
+        }
+
+        /* --- Show Hero --- */
+        .show-hero {
+            padding: 0; background: #1a1a1a; color: #fff;
+        }
+        .show-hero-inner {
+            display: grid; grid-template-columns: 380px 1fr; gap: 60px; align-items: center;
+            padding: 60px 0;
+        }
+        .show-artwork {
+            width: 380px; height: 380px; border-radius: 16px; flex-shrink: 0;
+        }
+        .show-hero-text .tag { background: #333; color: #ccc; border: 1px solid #555; margin-bottom: 16px; }
+        .show-hero-title {
+            font-size: 48px; font-weight: 800; color: #fff; margin-bottom: 8px; letter-spacing: -1px; line-height: 1.1;
+        }
+        .show-hero-host { font-size: 18px; color: #999; margin-bottom: 20px; }
+        .show-hero-desc { font-size: 17px; color: #bbb; line-height: 1.7; margin-bottom: 28px; max-width: 560px; }
+
+        .show-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+        .show-hero-actions .btn-primary { background: #fff; color: #222; }
+        .show-hero-actions .btn-primary:hover { background: #e0e0e0; }
+        .show-hero-actions .btn-secondary { color: #ccc; border-color: #555; }
+        .show-hero-actions .btn-secondary:hover { background: #555; color: #fff; border-color: #555; }
+
+        .show-meta-row {
+            display: flex; gap: 40px; padding-top: 28px; border-top: 1px solid #333;
+        }
+        .show-meta-item {}
+        .show-meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666; margin-bottom: 4px; }
+        .show-meta-value { font-size: 15px; font-weight: 600; color: #fff; }
+
+        /* --- Subscribe Platforms --- */
+        .subscribe-section { padding: 40px 0; background: #f8f8f8; border-bottom: 1px solid #eee; }
+        .subscribe-inner {
+            display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+        }
+        .subscribe-label { font-size: 14px; font-weight: 600; color: #555; }
+        .subscribe-platforms { display: flex; gap: 12px; flex-wrap: wrap; }
+        .platform-btn {
+            display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
+            background: #fff; border: 1px solid #ddd; border-radius: 8px; font-size: 13px;
+            font-weight: 600; color: #444; cursor: pointer; transition: all 0.2s;
+        }
+        .platform-btn:hover { border-color: #333; color: #222; }
+        .platform-icon {
+            width: 20px; height: 20px; background: #ddd; border-radius: 4px;
+            display: inline-flex; align-items: center; justify-content: center; font-size: 9px; color: #999;
+        }
+
+        /* --- Episodes List --- */
+        .episodes-section { padding: 80px 0; }
+        .episodes-header {
+            display: flex; justify-content: space-between; align-items: flex-end;
+            margin-bottom: 40px; flex-wrap: wrap; gap: 16px;
+        }
+        .season-tabs { display: flex; gap: 8px; }
+        .season-tab {
+            padding: 8px 18px; font-size: 13px; font-weight: 600; border: 1px solid #ddd;
+            border-radius: 6px; background: #fff; cursor: pointer; color: #666; transition: all 0.2s;
+        }
+        .season-tab:hover { border-color: #999; }
+        .season-tab.active { background: #333; color: #fff; border-color: #333; }
+
+        .episode-list { list-style: none; }
+        .episode-item {
+            display: grid; grid-template-columns: 60px 120px 1fr auto; gap: 24px;
+            align-items: center; padding: 20px 0; border-bottom: 1px solid #eee;
+            transition: background 0.2s;
+        }
+        .episode-item:hover { background: #fafafa; }
+        .episode-number {
+            font-size: 20px; font-weight: 700; color: #ccc; text-align: center;
+        }
+        .episode-thumb-small {
+            width: 120px; height: 68px; border-radius: 8px; flex-shrink: 0; font-size: 11px;
+        }
+        .episode-info {}
+        .episode-info h4 { font-size: 16px; font-weight: 700; color: #222; margin-bottom: 4px; }
+        .episode-info .episode-meta-text {
+            font-size: 13px; color: #999;
+        }
+        .episode-info p { font-size: 14px; color: #666; line-height: 1.5; margin-top: 6px; }
+        .episode-actions { display: flex; align-items: center; gap: 16px; }
+        .play-btn {
+            width: 48px; height: 48px; background: #333; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; color: #fff; font-size: 16px; cursor: pointer;
+            border: none; transition: background 0.2s; flex-shrink: 0;
+        }
+        .play-btn:hover { background: #000; }
+        .episode-duration { font-size: 13px; color: #999; white-space: nowrap; }
+
+        /* --- Season Schedule / Cities --- */
+        .schedule-section { padding: 80px 0; background: #f5f5f5; border-top: 1px solid #e5e5e5; }
+        .schedule-header { margin-bottom: 48px; }
+
+        .cities-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+        }
+        .city-card {
+            background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .city-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        .city-image { width: 100%; height: 140px; font-size: 12px; }
+        .city-body { padding: 18px; }
+        .city-body h4 { font-size: 16px; font-weight: 700; color: #222; margin-bottom: 4px; }
+        .city-body .city-date { font-size: 13px; color: #888; margin-bottom: 8px; }
+        .city-body .city-status { font-size: 12px; font-weight: 600; }
+        .city-status.released { color: #4a8; }
+        .city-status.upcoming { color: #888; }
+
+        /* --- Related Pillar --- */
+        .pillar-section { padding: 80px 0; border-top: 1px solid #eee; }
+        .pillar-card-large {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+            background: #fafafa; border: 1px solid #e5e5e5; border-radius: 16px; padding: 48px;
+        }
+        .pillar-card-large h3 { font-size: 28px; font-weight: 700; color: #222; margin-bottom: 16px; }
+        .pillar-card-large p { font-size: 16px; color: #666; line-height: 1.7; margin-bottom: 20px; }
+        .pillar-image-large { width: 100%; height: 260px; border-radius: 12px; }
+
+        /* --- Host Bio --- */
+        .host-section { padding: 80px 0; background: #fff; border-top: 1px solid #eee; }
+        .host-grid {
+            display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: start;
+        }
+        .host-photo { width: 280px; height: 340px; border-radius: 12px; }
+        .host-info h3 { font-size: 28px; font-weight: 700; color: #222; margin-bottom: 4px; }
+        .host-role { font-size: 16px; color: #888; margin-bottom: 20px; }
+        .host-info p { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 16px; }
+        .host-social { display: flex; gap: 12px; margin-top: 24px; }
+        .host-social-link {
+            width: 40px; height: 40px; background: #f0f0f0; border-radius: 8px; display: flex;
+            align-items: center; justify-content: center; font-size: 11px; color: #888; transition: all 0.2s;
+        }
+        .host-social-link:hover { background: #333; color: #fff; }
+
+        /* --- Footer --- */
+        .site-footer { background: #1a1a1a; color: #ccc; padding: 80px 0 40px; }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px;
+        }
+        .footer-brand .logo { color: #fff; margin-bottom: 16px; display: inline-block; }
+        .footer-brand p { font-size: 14px; color: #888; line-height: 1.7; margin-bottom: 24px; max-width: 300px; }
+        .social-links { display: flex; gap: 12px; }
+        .social-link {
+            width: 40px; height: 40px; background: #333; border-radius: 8px; display: flex;
+            align-items: center; justify-content: center; font-size: 11px; color: #999; transition: background 0.2s;
+        }
+        .social-link:hover { background: #444; color: #fff; }
+        .footer-column h4 {
+            font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            color: #fff; margin-bottom: 20px;
+        }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 12px; }
+        .footer-column a { font-size: 14px; color: #888; transition: color 0.2s; }
+        .footer-column a:hover { color: #fff; }
+        .footer-bottom {
+            border-top: 1px solid #333; padding-top: 30px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-bottom p { font-size: 13px; color: #666; }
+        .footer-legal { display: flex; gap: 24px; }
+        .footer-legal a { font-size: 13px; color: #666; }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .show-hero-inner { grid-template-columns: 280px 1fr; gap: 40px; }
+            .show-artwork { width: 280px; height: 280px; }
+            .cities-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: block; }
+            .show-hero-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+            .show-artwork { width: 260px; height: 260px; margin: 0 auto; }
+            .show-hero-desc { margin-left: auto; margin-right: auto; }
+            .show-hero-actions { justify-content: center; }
+            .show-meta-row { justify-content: center; flex-wrap: wrap; gap: 24px; }
+            .show-hero-title { font-size: 36px; }
+            .subscribe-inner { flex-direction: column; text-align: center; }
+            .episode-item { grid-template-columns: 40px 1fr auto; }
+            .episode-thumb-small { display: none; }
+            .cities-grid { grid-template-columns: 1fr; }
+            .host-grid { grid-template-columns: 1fr; text-align: center; }
+            .host-photo { margin: 0 auto; width: 200px; height: 240px; }
+            .host-social { justify-content: center; }
+            .pillar-card-large { grid-template-columns: 1fr; padding: 32px; }
+            .section-title { font-size: 26px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .show-hero-title { font-size: 28px; }
+            .show-artwork { width: 200px; height: 200px; }
+            .platform-btn { padding: 8px 14px; font-size: 12px; }
+            .episode-item { grid-template-columns: 1fr auto; }
+            .episode-number { display: none; }
+        }
+
+        .wireframe-badge {
+            position: fixed; bottom: 16px; right: 16px; background: #333; color: #fff;
+            font-size: 11px; padding: 6px 14px; border-radius: 4px; z-index: 999;
+            font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wireframe-badge">Wireframe</div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">PILLARS <span>of Change</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="shows.html">Shows</a></li>
+                    <li><a href="about.html#pillars">Pillars</a></li>
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="shows.html" class="nav-cta">Listen Now</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Menu">&#9776;</button>
+        </div>
+    </header>
+
+    <!-- ==================== SHOW HERO ==================== -->
+    <section class="show-hero">
+        <div class="container">
+            <div class="show-hero-inner">
+                <div class="placeholder-img show-artwork">
+                    Pride This Way<br>Show Artwork
+                </div>
+                <div class="show-hero-text">
+                    <span class="tag">Human Rights</span>
+                    <h1 class="show-hero-title">Pride This Way</h1>
+                    <p class="show-hero-host">Hosted by Soraya Vivian</p>
+                    <p class="show-hero-desc">
+                        A vibrant LGBTQ+ travel and culture vodcast that takes viewers on a journey
+                        through global Pride events. From the streets of S&atilde;o Paulo to the shores of
+                        Sydney, Soraya Vivian celebrates queer joy, resilience, and community in every
+                        corner of the world.
+                    </p>
+                    <div class="show-hero-actions">
+                        <a href="#" class="btn btn-primary">Watch Latest Episode</a>
+                        <a href="#" class="btn btn-secondary">Subscribe</a>
+                    </div>
+                    <div class="show-meta-row">
+                        <div class="show-meta-item">
+                            <div class="show-meta-label">Format</div>
+                            <div class="show-meta-value">Vodcast</div>
+                        </div>
+                        <div class="show-meta-item">
+                            <div class="show-meta-label">Season</div>
+                            <div class="show-meta-value">Season 1</div>
+                        </div>
+                        <div class="show-meta-item">
+                            <div class="show-meta-label">Episodes</div>
+                            <div class="show-meta-value">8 Released</div>
+                        </div>
+                        <div class="show-meta-item">
+                            <div class="show-meta-label">Pillar</div>
+                            <div class="show-meta-value">Human Rights</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SUBSCRIBE PLATFORMS ==================== -->
+    <section class="subscribe-section">
+        <div class="container">
+            <div class="subscribe-inner">
+                <span class="subscribe-label">Watch &amp; Subscribe:</span>
+                <div class="subscribe-platforms">
+                    <a href="#" class="platform-btn">
+                        <span class="platform-icon">YT</span> YouTube
+                    </a>
+                    <a href="#" class="platform-btn">
+                        <span class="platform-icon">AP</span> Apple Podcasts
+                    </a>
+                    <a href="#" class="platform-btn">
+                        <span class="platform-icon">SP</span> Spotify
+                    </a>
+                    <a href="#" class="platform-btn">
+                        <span class="platform-icon">AM</span> Amazon Music
+                    </a>
+                    <a href="#" class="platform-btn">
+                        <span class="platform-icon">RS</span> RSS Feed
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EPISODES ==================== -->
+    <section class="episodes-section">
+        <div class="container">
+            <div class="episodes-header">
+                <div>
+                    <p class="section-label">All Episodes</p>
+                    <h2 class="section-title">Season 1</h2>
+                </div>
+                <div class="season-tabs">
+                    <button class="season-tab active">Season 1</button>
+                    <button class="season-tab">Season 2 (Coming Soon)</button>
+                </div>
+            </div>
+
+            <ul class="episode-list">
+                <li class="episode-item">
+                    <span class="episode-number">08</span>
+                    <div class="placeholder-img episode-thumb-small">Thumb</div>
+                    <div class="episode-info">
+                        <h4>Pride in S&atilde;o Paulo: The World's Largest Celebration</h4>
+                        <span class="episode-meta-text">Feb 10, 2026 &middot; S&atilde;o Paulo, Brazil</span>
+                        <p>Soraya immerses herself in the energy, activism, and culture of the world's largest Pride parade.</p>
+                    </div>
+                    <div class="episode-actions">
+                        <span class="episode-duration">42 min</span>
+                        <button class="play-btn" aria-label="Play">&#9654;</button>
+                    </div>
+                </li>
+                <li class="episode-item">
+                    <span class="episode-number">07</span>
+                    <div class="placeholder-img episode-thumb-small">Thumb</div>
+                    <div class="episode-info">
+                        <h4>Sydney Mardi Gras: Resilience Down Under</h4>
+                        <span class="episode-meta-text">Jan 27, 2026 &middot; Sydney, Australia</span>
+                        <p>Exploring how Australia's LGBTQ+ community turned decades of struggle into joyous celebration.</p>
+                    </div>
+                    <div class="episode-actions">
+                        <span class="episode-duration">38 min</span>
+                        <button class="play-btn" aria-label="Play">&#9654;</button>
+                    </div>
+                </li>
+                <li class="episode-item">
+                    <span class="episode-number">06</span>
+                    <div class="placeholder-img episode-thumb-small">Thumb</div>
+                    <div class="episode-info">
+                        <h4>Berlin Pride: Freedom and Memory</h4>
+                        <span class="episode-meta-text">Jan 13, 2026 &middot; Berlin, Germany</span>
+                        <p>Berlin's Christopher Street Day blends celebration with a powerful remembrance of history's darkest chapters.</p>
+                    </div>
+                    <div class="episode-actions">
+                        <span class="episode-duration">45 min</span>
+                        <button class="play-btn" aria-label="Play">&#9654;</button>
+                    </div>
+                </li>
+                <li class="episode-item">
+                    <span class="episode-number">05</span>
+                    <div class="placeholder-img episode-thumb-small">Thumb</div>
+                    <div class="episode-info">
+                        <h4>Amsterdam Pride: Canals, Culture &amp; Courage</h4>
+                        <span class="episode-meta-text">Dec 30, 2025 &middot; Amsterdam, Netherlands</span>
+                        <p>A floating Pride like no other — Soraya joins the iconic canal parade and explores Dutch LGBTQ+ history.</p>
+                    </div>
+                    <div class="episode-actions">
+                        <span class="episode-duration">40 min</span>
+                        <button class="play-btn" aria-label="Play">&#9654;</button>
+                    </div>
+                </li>
+                <li class="episode-item">
+                    <span class="episode-number">04</span>
+                    <div class="placeholder-img episode-thumb-small">Thumb</div>
+                    <div class="episode-info">
+                        <h4>New York City: Where It All Began</h4>
+                        <span class="episode-meta-text">Dec 16, 2025 &middot; New York, USA</span>
+                        <p>From Stonewall to today, tracing the roots of the modern Pride movement in the city that started it all.</p>
+                    </div>
+                    <div class="episode-actions">
+                        <span class="episode-duration">52 min</span>
+                        <button class="play-btn" aria-label="Play">&#9654;</button>
+                    </div>
+                </li>
+                <li class="episode-item">
+                    <span class="episode-number">03</span>
+                    <div class="placeholder-img episode-thumb-small">Thumb</div>
+                    <div class="episode-info">
+                        <h4>Tel Aviv Pride: Joy in the Middle East</h4>
+                        <span class="episode-meta-text">Dec 2, 2025 &middot; Tel Aviv, Israel</span>
+                        <p>One of the largest Pride celebrations in Asia — exploring queer life and community in Tel Aviv.</p>
+                    </div>
+                    <div class="episode-actions">
+                        <span class="episode-duration">36 min</span>
+                        <button class="play-btn" aria-label="Play">&#9654;</button>
+                    </div>
+                </li>
+                <li class="episode-item">
+                    <span class="episode-number">02</span>
+                    <div class="placeholder-img episode-thumb-small">Thumb</div>
+                    <div class="episode-info">
+                        <h4>London Pride: A Royal Celebration</h4>
+                        <span class="episode-meta-text">Nov 18, 2025 &middot; London, UK</span>
+                        <p>Marching through the streets of London, celebrating decades of LGBTQ+ rights progress in the UK.</p>
+                    </div>
+                    <div class="episode-actions">
+                        <span class="episode-duration">44 min</span>
+                        <button class="play-btn" aria-label="Play">&#9654;</button>
+                    </div>
+                </li>
+                <li class="episode-item">
+                    <span class="episode-number">01</span>
+                    <div class="placeholder-img episode-thumb-small">Thumb</div>
+                    <div class="episode-info">
+                        <h4>Welcome to Pride This Way</h4>
+                        <span class="episode-meta-text">Nov 4, 2025 &middot; Premiere</span>
+                        <p>Meet Soraya Vivian and discover what Pride This Way is all about — a global journey of queer culture, celebration, and community.</p>
+                    </div>
+                    <div class="episode-actions">
+                        <span class="episode-duration">28 min</span>
+                        <button class="play-btn" aria-label="Play">&#9654;</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ==================== SEASON SCHEDULE / CITIES ==================== -->
+    <section class="schedule-section">
+        <div class="container">
+            <div class="schedule-header">
+                <p class="section-label">Season 1 Cities</p>
+                <h2 class="section-title">Where Pride Takes Us</h2>
+                <p class="section-subtitle">
+                    Each episode of Pride This Way visits a different city during its Pride celebration,
+                    capturing the unique culture, history, and community in each location.
+                </p>
+            </div>
+            <div class="cities-grid">
+                <div class="city-card">
+                    <div class="placeholder-img city-image">S&atilde;o Paulo</div>
+                    <div class="city-body">
+                        <h4>S&atilde;o Paulo, Brazil</h4>
+                        <p class="city-date">Episode 8 &middot; Feb 10, 2026</p>
+                        <p class="city-status released">&#9679; Released</p>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <div class="placeholder-img city-image">Sydney</div>
+                    <div class="city-body">
+                        <h4>Sydney, Australia</h4>
+                        <p class="city-date">Episode 7 &middot; Jan 27, 2026</p>
+                        <p class="city-status released">&#9679; Released</p>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <div class="placeholder-img city-image">Berlin</div>
+                    <div class="city-body">
+                        <h4>Berlin, Germany</h4>
+                        <p class="city-date">Episode 6 &middot; Jan 13, 2026</p>
+                        <p class="city-status released">&#9679; Released</p>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <div class="placeholder-img city-image">Amsterdam</div>
+                    <div class="city-body">
+                        <h4>Amsterdam, Netherlands</h4>
+                        <p class="city-date">Episode 5 &middot; Dec 30, 2025</p>
+                        <p class="city-status released">&#9679; Released</p>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <div class="placeholder-img city-image">New York</div>
+                    <div class="city-body">
+                        <h4>New York, USA</h4>
+                        <p class="city-date">Episode 4 &middot; Dec 16, 2025</p>
+                        <p class="city-status released">&#9679; Released</p>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <div class="placeholder-img city-image">Tel Aviv</div>
+                    <div class="city-body">
+                        <h4>Tel Aviv, Israel</h4>
+                        <p class="city-date">Episode 3 &middot; Dec 2, 2025</p>
+                        <p class="city-status released">&#9679; Released</p>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <div class="placeholder-img city-image">London</div>
+                    <div class="city-body">
+                        <h4>London, UK</h4>
+                        <p class="city-date">Episode 2 &middot; Nov 18, 2025</p>
+                        <p class="city-status released">&#9679; Released</p>
+                    </div>
+                </div>
+                <div class="city-card">
+                    <div class="placeholder-img city-image">Premiere</div>
+                    <div class="city-body">
+                        <h4>Premiere Episode</h4>
+                        <p class="city-date">Episode 1 &middot; Nov 4, 2025</p>
+                        <p class="city-status released">&#9679; Released</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== RELATED PILLAR ==================== -->
+    <section class="pillar-section">
+        <div class="container">
+            <div class="pillar-card-large">
+                <div>
+                    <p class="section-label">Related Pillar</p>
+                    <h3>Human Rights</h3>
+                    <p>
+                        Pride This Way lives within our Human Rights pillar. We believe in the inherent
+                        dignity and equal rights of every person, and this show brings visibility to
+                        LGBTQ+ communities around the world. A portion of the revenue generated by this
+                        show is donated to LGBTQ+ rights organizations globally.
+                    </p>
+                    <a href="impact.html" class="btn btn-primary btn-small">See Our Impact</a>
+                </div>
+                <div class="placeholder-img pillar-image-large">
+                    Human Rights Pillar Image
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HOST BIO ==================== -->
+    <section class="host-section">
+        <div class="container">
+            <p class="section-label">Your Host</p>
+            <h2 class="section-title" style="margin-bottom: 40px;">Meet Soraya Vivian</h2>
+            <div class="host-grid">
+                <div class="placeholder-img host-photo">
+                    Soraya Vivian<br>Headshot
+                </div>
+                <div class="host-info">
+                    <h3>Soraya Vivian</h3>
+                    <p class="host-role">Host &amp; Creator, Pride This Way</p>
+                    <p>
+                        Soraya Vivian is a dynamic storyteller, traveler, and advocate for LGBTQ+ visibility
+                        and rights. As the creator and host of Pride This Way, she brings her infectious
+                        energy and deep cultural curiosity to every episode, connecting with communities
+                        around the world.
+                    </p>
+                    <p>
+                        With a background in digital media and a passion for amplifying underrepresented
+                        voices, Soraya joined Pillars of Change Media to build a show that goes beyond
+                        surface-level celebration — diving into the history, politics, and personal stories
+                        behind Pride movements everywhere.
+                    </p>
+                    <p>
+                        When she's not on the road filming, Soraya can be found working with LGBTQ+ youth
+                        organizations, speaking at media conferences, and developing the next season of
+                        Pride This Way.
+                    </p>
+                    <div class="host-social">
+                        <a href="#" class="host-social-link" aria-label="Instagram">IG</a>
+                        <a href="#" class="host-social-link" aria-label="X / Twitter">X</a>
+                        <a href="#" class="host-social-link" aria-label="TikTok">TT</a>
+                        <a href="#" class="host-social-link" aria-label="LinkedIn">LI</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">PILLARS <span>of Change</span></a>
+                    <p>
+                        A purpose-driven content studio turning powerful storytelling
+                        into measurable social impact.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                        <a href="#" class="social-link" aria-label="YouTube">YT</a>
+                        <a href="#" class="social-link" aria-label="X / Twitter">X</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">LI</a>
+                        <a href="#" class="social-link" aria-label="TikTok">TT</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Shows</h4>
+                    <ul>
+                        <li><a href="show-detail.html">Pride This Way</a></li>
+                        <li><a href="#">Court on Trial</a></li>
+                        <li><a href="shows.html">All Programming</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="impact.html">Impact</a></li>
+                        <li><a href="about.html#pillars">Our Pillars</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="contact.html">Press Inquiries</a></li>
+                        <li><a href="contact.html">Partnerships</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pillars of Change, LLC. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shows — Pillars of Change Media</title>
+    <style>
+        /* ============================================
+           PILLARS OF CHANGE — SHOWS LISTING WIREFRAME
+           ============================================ */
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #333; background: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: #555; text-decoration: none; }
+        a:hover { color: #000; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .section-label {
+            font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+            color: #999; margin-bottom: 8px;
+        }
+        .section-title { font-size: 32px; font-weight: 700; color: #222; margin-bottom: 16px; }
+        .section-subtitle { font-size: 18px; color: #666; max-width: 640px; margin-bottom: 40px; }
+
+        .btn {
+            display: inline-block; padding: 14px 32px; font-size: 15px; font-weight: 600;
+            border-radius: 6px; cursor: pointer; transition: all 0.2s ease; border: none; text-align: center;
+        }
+        .btn-primary { background: #333; color: #fff; }
+        .btn-primary:hover { background: #000; color: #fff; }
+        .btn-secondary { background: #fff; color: #333; border: 2px solid #333; }
+        .btn-secondary:hover { background: #333; color: #fff; }
+        .btn-small { padding: 10px 20px; font-size: 13px; }
+        .btn-ghost {
+            background: transparent; color: #555; border: 1px solid #ddd; padding: 10px 20px;
+            font-size: 13px; font-weight: 500;
+        }
+        .btn-ghost:hover { border-color: #333; color: #333; }
+        .btn-ghost.active { background: #333; color: #fff; border-color: #333; }
+
+        .placeholder-img {
+            background: #e8e8e8; border: 2px dashed #ccc; display: flex; align-items: center;
+            justify-content: center; color: #999; font-size: 14px; text-align: center; position: relative;
+        }
+        .placeholder-img::before { content: "\2715"; position: absolute; font-size: 48px; color: #ddd; }
+
+        .tag {
+            display: inline-block; padding: 4px 12px; font-size: 11px; text-transform: uppercase;
+            letter-spacing: 1px; font-weight: 600; border-radius: 3px; background: #f0f0f0; color: #666;
+        }
+
+        /* --- Header --- */
+        .site-header {
+            position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #e0e0e0;
+        }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .logo { font-size: 18px; font-weight: 800; color: #222; letter-spacing: -0.5px; }
+        .logo span { color: #888; font-weight: 400; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { font-size: 14px; font-weight: 500; color: #555; transition: color 0.2s; }
+        .nav-links a:hover { color: #000; }
+        .nav-cta {
+            background: #333; color: #fff !important; padding: 10px 22px; border-radius: 6px; font-weight: 600;
+        }
+        .nav-cta:hover { background: #000; }
+        .mobile-menu-toggle {
+            display: none; background: none; border: none; font-size: 24px; cursor: pointer; padding: 8px; color: #333;
+        }
+
+        /* --- Page Hero --- */
+        .page-hero {
+            padding: 80px 0 60px; background: linear-gradient(180deg, #f8f8f8 0%, #fff 100%);
+            border-bottom: 1px solid #eee;
+        }
+        .page-hero-title {
+            font-size: 48px; font-weight: 800; line-height: 1.1; color: #111; margin-bottom: 20px; letter-spacing: -1px;
+        }
+        .page-hero-desc { font-size: 20px; color: #555; line-height: 1.7; max-width: 700px; }
+
+        /* --- Featured Show Spotlight --- */
+        .spotlight-section {
+            padding: 80px 0; background: #1a1a1a; color: #fff;
+        }
+        .spotlight-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+        }
+        .spotlight-image { width: 100%; height: 380px; border-radius: 12px; }
+        .spotlight-text .section-label { color: #888; }
+        .spotlight-text .tag { background: #333; color: #ccc; border: 1px solid #555; }
+        .spotlight-text h2 {
+            font-size: 36px; font-weight: 800; color: #fff; margin: 12px 0 8px; letter-spacing: -0.5px;
+        }
+        .spotlight-host { font-size: 15px; color: #888; margin-bottom: 16px; }
+        .spotlight-text p { font-size: 16px; color: #aaa; line-height: 1.7; margin-bottom: 24px; }
+        .spotlight-text .btn-primary { background: #fff; color: #222; }
+        .spotlight-text .btn-primary:hover { background: #e0e0e0; }
+
+        .spotlight-meta {
+            display: flex; gap: 32px; margin-top: 24px; padding-top: 24px; border-top: 1px solid #333;
+        }
+        .spotlight-meta-item { text-align: left; }
+        .spotlight-meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666; }
+        .spotlight-meta-value { font-size: 16px; font-weight: 600; color: #fff; }
+
+        /* --- Filters --- */
+        .filters-section {
+            padding: 40px 0; border-bottom: 1px solid #eee; background: #fafafa;
+        }
+        .filters-bar {
+            display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+        }
+        .filter-group { display: flex; gap: 8px; flex-wrap: wrap; }
+        .filter-label { font-size: 14px; font-weight: 600; color: #444; margin-right: 8px; align-self: center; }
+        .results-count { font-size: 14px; color: #999; }
+
+        /* --- Shows Grid --- */
+        .shows-listing { padding: 60px 0 100px; }
+        .shows-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+        }
+
+        .show-card {
+            border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden;
+            transition: all 0.2s ease; background: #fff;
+        }
+        .show-card:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-2px);
+        }
+        .show-card-image { width: 100%; height: 220px; }
+        .show-card-body { padding: 24px; }
+        .show-card-body .tag { margin-bottom: 12px; }
+        .show-card-body h3 { font-size: 22px; font-weight: 700; color: #222; margin-bottom: 6px; }
+        .show-card-host { font-size: 14px; color: #888; margin-bottom: 12px; }
+        .show-card-body p { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 20px; }
+        .show-card-footer {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-top: 16px; border-top: 1px solid #f0f0f0;
+        }
+        .show-type { font-size: 12px; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- CTA Banner --- */
+        .cta-banner {
+            padding: 80px 0; background: #f5f5f5; border-top: 1px solid #e5e5e5; text-align: center;
+        }
+        .cta-banner .section-subtitle { margin-left: auto; margin-right: auto; }
+
+        /* --- Footer --- */
+        .site-footer { background: #1a1a1a; color: #ccc; padding: 80px 0 40px; }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px;
+        }
+        .footer-brand .logo { color: #fff; margin-bottom: 16px; display: inline-block; }
+        .footer-brand p { font-size: 14px; color: #888; line-height: 1.7; margin-bottom: 24px; max-width: 300px; }
+        .social-links { display: flex; gap: 12px; }
+        .social-link {
+            width: 40px; height: 40px; background: #333; border-radius: 8px; display: flex;
+            align-items: center; justify-content: center; font-size: 11px; color: #999; transition: background 0.2s;
+        }
+        .social-link:hover { background: #444; color: #fff; }
+        .footer-column h4 {
+            font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            color: #fff; margin-bottom: 20px;
+        }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 12px; }
+        .footer-column a { font-size: 14px; color: #888; transition: color 0.2s; }
+        .footer-column a:hover { color: #fff; }
+        .footer-bottom {
+            border-top: 1px solid #333; padding-top: 30px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-bottom p { font-size: 13px; color: #666; }
+        .footer-legal { display: flex; gap: 24px; }
+        .footer-legal a { font-size: 13px; color: #666; }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .shows-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: block; }
+            .page-hero-title { font-size: 34px; }
+            .spotlight-grid { grid-template-columns: 1fr; gap: 40px; }
+            .shows-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 26px; }
+            .filters-bar { flex-direction: column; align-items: flex-start; }
+            .spotlight-meta { flex-wrap: wrap; gap: 16px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero-title { font-size: 28px; }
+            .filter-group { flex-wrap: wrap; }
+        }
+
+        .wireframe-badge {
+            position: fixed; bottom: 16px; right: 16px; background: #333; color: #fff;
+            font-size: 11px; padding: 6px 14px; border-radius: 4px; z-index: 999;
+            font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wireframe-badge">Wireframe</div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">PILLARS <span>of Change</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="shows.html">Shows</a></li>
+                    <li><a href="about.html#pillars">Pillars</a></li>
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="shows.html" class="nav-cta">Listen Now</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Menu">&#9776;</button>
+        </div>
+    </header>
+
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="page-hero">
+        <div class="container">
+            <p class="section-label">Our Programming</p>
+            <h1 class="page-hero-title">Shows That Spark Change</h1>
+            <p class="page-hero-desc">
+                From podcasts and vodcasts to immersive digital experiences, every piece of content
+                we produce is designed to amplify underrepresented voices and drive measurable impact.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURED SPOTLIGHT ==================== -->
+    <section class="spotlight-section">
+        <div class="container">
+            <div class="spotlight-grid">
+                <div class="placeholder-img spotlight-image">
+                    Pride This Way — Featured Artwork
+                </div>
+                <div class="spotlight-text">
+                    <p class="section-label">Featured Show</p>
+                    <span class="tag">Human Rights</span>
+                    <h2>Pride This Way</h2>
+                    <p class="spotlight-host">Hosted by Soraya Vivian</p>
+                    <p>
+                        A vibrant LGBTQ+ travel and culture vodcast that takes viewers on a journey through
+                        global Pride events, celebrating queer joy, resilience, and community around the world.
+                        From S&atilde;o Paulo to Sydney, Berlin to New York — discover how Pride looks different
+                        everywhere, yet connects us all.
+                    </p>
+                    <a href="show-detail.html" class="btn btn-primary">Watch Latest Episode</a>
+
+                    <div class="spotlight-meta">
+                        <div class="spotlight-meta-item">
+                            <div class="spotlight-meta-label">Format</div>
+                            <div class="spotlight-meta-value">Vodcast</div>
+                        </div>
+                        <div class="spotlight-meta-item">
+                            <div class="spotlight-meta-label">Season</div>
+                            <div class="spotlight-meta-value">Season 1</div>
+                        </div>
+                        <div class="spotlight-meta-item">
+                            <div class="spotlight-meta-label">Episodes</div>
+                            <div class="spotlight-meta-value">8 Released</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FILTERS ==================== -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-bar">
+                <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                    <span class="filter-label">Filter by Pillar:</span>
+                    <div class="filter-group">
+                        <button class="btn-ghost active">All</button>
+                        <button class="btn-ghost">Human Rights</button>
+                        <button class="btn-ghost">Social Justice</button>
+                        <button class="btn-ghost">Education</button>
+                        <button class="btn-ghost">Health &amp; Wellness</button>
+                        <button class="btn-ghost">Food Insecurity</button>
+                    </div>
+                </div>
+                <span class="results-count">Showing 6 shows</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SHOWS GRID ==================== -->
+    <section class="shows-listing">
+        <div class="container">
+            <div class="shows-grid">
+
+                <!-- Pride This Way -->
+                <div class="show-card">
+                    <div class="placeholder-img show-card-image">Pride This Way — Artwork</div>
+                    <div class="show-card-body">
+                        <span class="tag">Human Rights</span>
+                        <h3>Pride This Way</h3>
+                        <p class="show-card-host">Hosted by Soraya Vivian</p>
+                        <p>A vibrant LGBTQ+ travel and culture vodcast covering global Pride events, celebrating queer joy and resilience worldwide.</p>
+                        <div class="show-card-footer">
+                            <span class="show-type">Vodcast</span>
+                            <a href="show-detail.html" class="btn btn-primary btn-small">Watch Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Court on Trial -->
+                <div class="show-card">
+                    <div class="placeholder-img show-card-image">Court on Trial — Artwork</div>
+                    <div class="show-card-body">
+                        <span class="tag">Social Justice</span>
+                        <h3>Court on Trial</h3>
+                        <p class="show-card-host">Hosted by Cris Wright</p>
+                        <p>A hard-hitting podcast exploring the justice system, examining landmark cases, systemic failures, and the fight for reform.</p>
+                        <div class="show-card-footer">
+                            <span class="show-type">Podcast</span>
+                            <a href="#" class="btn btn-primary btn-small">Listen Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder: Upcoming Show 3 -->
+                <div class="show-card">
+                    <div class="placeholder-img show-card-image">Show Artwork</div>
+                    <div class="show-card-body">
+                        <span class="tag">Education</span>
+                        <h3>The Learning Gap</h3>
+                        <p class="show-card-host">Host TBA</p>
+                        <p>Exploring innovative approaches to education equity, from community-led schools to technology that bridges the digital divide.</p>
+                        <div class="show-card-footer">
+                            <span class="show-type">Podcast</span>
+                            <a href="#" class="btn btn-secondary btn-small">Coming Soon</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder: Upcoming Show 4 -->
+                <div class="show-card">
+                    <div class="placeholder-img show-card-image">Show Artwork</div>
+                    <div class="show-card-body">
+                        <span class="tag">Health &amp; Wellness</span>
+                        <h3>Whole Health</h3>
+                        <p class="show-card-host">Host TBA</p>
+                        <p>An honest look at health disparities and holistic wellness practices across communities that have been historically underserved.</p>
+                        <div class="show-card-footer">
+                            <span class="show-type">Vodcast</span>
+                            <a href="#" class="btn btn-secondary btn-small">Coming Soon</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder: Upcoming Show 5 -->
+                <div class="show-card">
+                    <div class="placeholder-img show-card-image">Show Artwork</div>
+                    <div class="show-card-body">
+                        <span class="tag">Food Insecurity</span>
+                        <h3>Fed Up</h3>
+                        <p class="show-card-host">Host TBA</p>
+                        <p>Investigating the food system's failures and celebrating communities building sustainable solutions to hunger and food access.</p>
+                        <div class="show-card-footer">
+                            <span class="show-type">Podcast</span>
+                            <a href="#" class="btn btn-secondary btn-small">Coming Soon</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder: Digital Experience -->
+                <div class="show-card">
+                    <div class="placeholder-img show-card-image">Experience Artwork</div>
+                    <div class="show-card-body">
+                        <span class="tag">Human Rights</span>
+                        <h3>Voices Unheard</h3>
+                        <p class="show-card-host">Immersive Experience</p>
+                        <p>An immersive digital experience that puts you in the shoes of refugees, asylum seekers, and displaced people around the world.</p>
+                        <div class="show-card-footer">
+                            <span class="show-type">Immersive</span>
+                            <a href="#" class="btn btn-secondary btn-small">Coming Soon</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA BANNER ==================== -->
+    <section class="cta-banner">
+        <div class="container">
+            <p class="section-label">Have a Story to Tell?</p>
+            <h2 class="section-title">We're Always Looking for New Voices</h2>
+            <p class="section-subtitle">
+                If you have a story that aligns with our five pillars and deserves to be heard,
+                we want to hear from you. Pitch your idea to our production team.
+            </p>
+            <a href="contact.html" class="btn btn-primary">Submit a Pitch</a>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">PILLARS <span>of Change</span></a>
+                    <p>
+                        A purpose-driven content studio turning powerful storytelling
+                        into measurable social impact.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                        <a href="#" class="social-link" aria-label="YouTube">YT</a>
+                        <a href="#" class="social-link" aria-label="X / Twitter">X</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">LI</a>
+                        <a href="#" class="social-link" aria-label="TikTok">TT</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Shows</h4>
+                    <ul>
+                        <li><a href="show-detail.html">Pride This Way</a></li>
+                        <li><a href="#">Court on Trial</a></li>
+                        <li><a href="shows.html">All Programming</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="impact.html">Impact</a></li>
+                        <li><a href="about.html#pillars">Our Pillars</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="contact.html">Press Inquiries</a></li>
+                        <li><a href="contact.html">Partnerships</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pillars of Change, LLC. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
