@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Information Architecture & Site Map — Pillars of Change Media</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.7;
+    color: #1a1a2e;
+    background: #f8f9fa;
+    padding: 0;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 60px 80px;
+    min-height: 100vh;
+    box-shadow: 0 0 40px rgba(0,0,0,0.06);
+  }
+  h1 {
+    font-size: 2.2rem;
+    color: #1a1a2e;
+    border-bottom: 3px solid #6C63FF;
+    padding-bottom: 16px;
+    margin-bottom: 12px;
+  }
+  h2 {
+    font-size: 1.6rem;
+    color: #2d2d5e;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  h3 {
+    font-size: 1.25rem;
+    color: #3d3d7e;
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+  h4 {
+    font-size: 1.05rem;
+    color: #555;
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+  p { margin-bottom: 14px; }
+  ul, ol {
+    margin-bottom: 14px;
+    padding-left: 28px;
+  }
+  li { margin-bottom: 6px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.92rem;
+  }
+  th {
+    background: #6C63FF;
+    color: #fff;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  tr:nth-child(even) td { background: #f8f8ff; }
+  tr:hover td { background: #f0eeff; }
+  code {
+    background: #f0eeff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #6C63FF;
+  }
+  pre {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    padding: 20px 24px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 20px 0;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+  }
+  blockquote {
+    border-left: 4px solid #6C63FF;
+    padding: 12px 20px;
+    margin: 16px 0;
+    background: #f8f8ff;
+    color: #555;
+  }
+  strong { color: #1a1a2e; }
+  hr {
+    border: none;
+    border-top: 2px solid #e8e8e8;
+    margin: 40px 0;
+  }
+  a { color: #6C63FF; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  @media print {
+    body { background: #fff; }
+    .container { box-shadow: none; padding: 20px; }
+    pre { white-space: pre-wrap; }
+  }
+  @media (max-width: 768px) {
+    .container { padding: 30px 24px; }
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.3rem; }
+    table { font-size: 0.82rem; }
+    th, td { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+<h1 id="information-architecture-recommended-site-map">Information Architecture &amp; Recommended Site Map</h1>
+<h2 id="pillars-of-change-media-pillarsofchangecom">Pillars of Change Media — pillarsofchange.com</h2>
+<hr />
+<h2 id="1-current-state-assessment">1. Current State Assessment</h2>
+<h3 id="what-the-site-likely-has-based-on-launch-stage">What the Site Likely Has (Based on Launch Stage)</h3>
+<p>Pillars of Change Media launched on January 28, 2026. As a newly launched content studio, the current site likely has:
+- A single-page or minimal multi-page marketing site
+- Basic company information and mission statement
+- Links to podcast platforms (if live)
+- Contact information</p>
+<h3 id="whats-missing">What's Missing</h3>
+<ul>
+<li><strong>No search engine indexation</strong> — <code>site:pillarsofchange.com</code> returns zero Google results</li>
+<li><strong>Bot-blocking behavior</strong> — The server returns 403 errors to crawlers</li>
+<li><strong>No discoverable sitemap.xml or robots.txt</strong></li>
+<li><strong>Limited content depth</strong> — No blog, no dedicated show pages, no impact reporting</li>
+<li><strong>No content taxonomy</strong> — No way to browse by pillar, show, or content type</li>
+<li><strong>No user journeys</strong> — No clear paths for different audience segments (listeners, partners, donors, press)</li>
+</ul>
+<hr />
+<h2 id="2-recommended-site-map">2. Recommended Site Map</h2>
+<pre><code>pillarsofchange.com/
+│
+├── / (Homepage)
+│
+├── /about/
+│   ├── /about/team/
+│   └── /about/partners/
+│
+├── /pillars/
+│   ├── /pillars/human-rights/
+│   ├── /pillars/social-justice/
+│   ├── /pillars/education/
+│   ├── /pillars/health-and-wellness/
+│   └── /pillars/food-insecurity/
+│
+├── /shows/
+│   ├── /shows/pride-this-way/
+│   │   ├── /shows/pride-this-way/episodes/
+│   │   ├── /shows/pride-this-way/episodes/{episode-slug}/
+│   │   ├── /shows/pride-this-way/cities/
+│   │   └── /shows/pride-this-way/about/
+│   ├── /shows/court-on-trial/
+│   │   ├── /shows/court-on-trial/episodes/
+│   │   ├── /shows/court-on-trial/episodes/{episode-slug}/
+│   │   └── /shows/court-on-trial/about/
+│   └── /shows/{future-show-slug}/
+│
+├── /impact/
+│   ├── /impact/model/
+│   ├── /impact/reports/
+│   ├── /impact/reports/{year}/
+│   └── /impact/stories/
+│
+├── /blog/
+│   ├── /blog/{post-slug}/
+│   ├── /blog/category/{pillar-slug}/
+│   └── /blog/category/{content-type}/
+│
+├── /press/
+│   ├── /press/releases/
+│   ├── /press/media-kit/
+│   └── /press/in-the-news/
+│
+├── /contact/
+│   ├── /contact/partnerships/
+│   ├── /contact/press/
+│   └── /contact/pitch/
+│
+├── /privacy-policy/
+├── /terms-of-service/
+├── /sitemap.xml
+└── /robots.txt
+</code></pre>
+<hr />
+<h2 id="3-navigation-structure">3. Navigation Structure</h2>
+<h3 id="primary-navigation-desktop">Primary Navigation (Desktop)</h3>
+<pre><code>[Logo: PILLARS of Change]   Shows ▼   Pillars ▼   Impact   About   Contact   [Listen Now →]
+                              │          │
+                              │          ├── Human Rights
+                              │          ├── Social Justice
+                              │          ├── Education
+                              │          ├── Health &amp; Wellness
+                              │          └── Food Insecurity
+                              │
+                              ├── All Shows
+                              ├── Pride This Way
+                              └── Court on Trial
+</code></pre>
+<h3 id="mobile-navigation">Mobile Navigation</h3>
+<pre><code>[Logo]                                                          [☰ Hamburger]
+                                                                    │
+                                                                    ├── Shows
+                                                                    │   ├── All Shows
+                                                                    │   ├── Pride This Way
+                                                                    │   └── Court on Trial
+                                                                    ├── Pillars
+                                                                    │   ├── Human Rights
+                                                                    │   ├── Social Justice
+                                                                    │   ├── Education
+                                                                    │   ├── Health &amp; Wellness
+                                                                    │   └── Food Insecurity
+                                                                    ├── Impact
+                                                                    ├── About
+                                                                    │   ├── Our Story
+                                                                    │   ├── Team
+                                                                    │   └── Partners
+                                                                    ├── Contact
+                                                                    ├── Press
+                                                                    └── [Listen Now →]
+</code></pre>
+<h3 id="footer-navigation">Footer Navigation</h3>
+<pre><code>┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  PILLARS of Change              Shows              Company        Connect   │
+│  Purpose-driven content         Pride This Way      About          Contact  │
+│  studio turning storytelling    Court on Trial      Team           Press    │
+│  into measurable social         All Shows           Partners       Pitch    │
+│  impact.                                            Impact                  │
+│                                 Pillars             Blog           Social   │
+│  [IG] [YT] [X] [LI] [TT]      Human Rights        Press          IG / YT  │
+│                                 Social Justice      Privacy        X / LI   │
+│                                 Education           Terms          TT       │
+│                                 Health &amp; Wellness                           │
+│                                 Food Insecurity                             │
+│                                                                             │
+│  ──────────────────────────────────────────────────────────────────────────  │
+│  © 2026 Pillars of Change, LLC         Privacy Policy  |  Terms of Service  │
+│                                                                             │
+│  Newsletter: [Your email _______________] [Subscribe]                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr />
+<h2 id="4-page-inventory">4. Page Inventory</h2>
+<h3 id="41-homepage">4.1 Homepage — <code>/</code></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Introduce POC's mission, showcase programming, and drive engagement</td>
+</tr>
+<tr>
+<td><strong>Target Audience</strong></td>
+<td>All visitors — first impression</td>
+</tr>
+<tr>
+<td><strong>User Intent</strong></td>
+<td>"What is Pillars of Change?"</td>
+</tr>
+<tr>
+<td><strong>SEO Keywords</strong></td>
+<td>pillars of change media, purpose-driven content studio, storytelling social impact</td>
+</tr>
+<tr>
+<td><strong>Key Content Elements</strong></td>
+<td>Hero with mission + CTA, Five Pillars visual showcase, Featured Shows (Pride This Way, Court on Trial), Impact metrics ticker, Latest episodes feed, Partners section, Newsletter signup</td>
+</tr>
+<tr>
+<td><strong>Primary CTA</strong></td>
+<td>"Listen Now" / "Watch Our Shows"</td>
+</tr>
+<tr>
+<td><strong>Secondary CTA</strong></td>
+<td>"Learn About Our Impact"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-about-about">4.2 About — <code>/about/</code></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Tell the POC origin story, explain the model, build trust</td>
+</tr>
+<tr>
+<td><strong>Target Audience</strong></td>
+<td>Potential partners, press, curious visitors</td>
+</tr>
+<tr>
+<td><strong>User Intent</strong></td>
+<td>"Who is behind this and why should I trust them?"</td>
+</tr>
+<tr>
+<td><strong>SEO Keywords</strong></td>
+<td>about pillars of change, H.J. Taylor producer, purpose-driven media company</td>
+</tr>
+<tr>
+<td><strong>Key Content Elements</strong></td>
+<td>Founder story (H.J. Taylor), Mission &amp; vision statements, The five pillars explained, Business model (how storytelling funds change), Timeline/milestones, UPI Loan Fund partnership</td>
+</tr>
+<tr>
+<td><strong>Primary CTA</strong></td>
+<td>"Partner With Us"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-team-aboutteam">4.3 Team — <code>/about/team/</code></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Humanize the brand, showcase expertise</td>
+</tr>
+<tr>
+<td><strong>Target Audience</strong></td>
+<td>Press, partners, industry professionals</td>
+</tr>
+<tr>
+<td><strong>User Intent</strong></td>
+<td>"Who works here?"</td>
+</tr>
+<tr>
+<td><strong>SEO Keywords</strong></td>
+<td>pillars of change team, H.J. Taylor, Mandy Goldberg producer</td>
+</tr>
+<tr>
+<td><strong>Key Content Elements</strong></td>
+<td>H.J. Taylor (Founder &amp; CEO), Mandy Goldberg (Producer), Soraya Vivian (Host, Pride This Way), Cris Wright (Host, Court on Trial), Jack Horlock (Horlock House), Advisory board (if applicable)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="44-partners-aboutpartners">4.4 Partners — <code>/about/partners/</code></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Showcase the partner ecosystem and build credibility</td>
+</tr>
+<tr>
+<td><strong>Target Audience</strong></td>
+<td>Potential sponsors, nonprofits, brand partners</td>
+</tr>
+<tr>
+<td><strong>User Intent</strong></td>
+<td>"Who do they work with?"</td>
+</tr>
+<tr>
+<td><strong>SEO Keywords</strong></td>
+<td>pillars of change partners, UPI Loan Fund, Horlock House</td>
+</tr>
+<tr>
+<td><strong>Key Content Elements</strong></td>
+<td>UPI Loan Fund (CDFI) partnership detail, Horlock House (Pride partnerships), Nonprofit partners, Brand sponsors, How to become a partner CTA</td>
+</tr>
+</tbody>
+</table>
+<h3 id="45-pillars-overview-pillars">4.5 Pillars Overview — <code>/pillars/</code></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Explain the five-pillar framework that drives all content</td>
+</tr>
+<tr>
+<td><strong>Target Audience</strong></td>
+<td>All visitors wanting to understand the mission</td>
+</tr>
+<tr>
+<td><strong>User Intent</strong></td>
+<td>"What are the five pillars and how do they guide the work?"</td>
+</tr>
+<tr>
+<td><strong>SEO Keywords</strong></td>
+<td>five pillars of change, human rights media, social justice content, content with purpose</td>
+</tr>
+<tr>
+<td><strong>Key Content Elements</strong></td>
+<td>Visual overview of all five pillars, Brief description of each with link to detail page, Related shows per pillar, Impact data per pillar</td>
+</tr>
+</tbody>
+</table>
+<h3 id="46-individual-pillar-pages-pillarspillar-slug">4.6 Individual Pillar Pages — <code>/pillars/{pillar-slug}/</code></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Deep dive into each pillar's focus, related content, and impact</td>
+</tr>
+<tr>
+<td><strong>Target Audience</strong></td>
+<td>Cause-aligned visitors, nonprofit partners, donors</td>
+</tr>
+<tr>
+<td><strong>SEO Keywords</strong></td>
+<td>(varies per pillar — see below)</td>
+</tr>
+<tr>
+<td><strong>Key Content Elements</strong></td>
+<td>Pillar definition and why it matters, Related shows and episodes, Impact metrics for this pillar, Beneficiary stories, Nonprofit partners in this space, Related blog posts</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pillar-Specific Keywords:</strong>
+| Pillar | Target Keywords |
+|---|---|
+| Human Rights | human rights podcast, human rights storytelling, LGBTQ+ media, pride podcast |
+| Social Justice | social justice podcast, racial justice content, equity media |
+| Education | education podcast, educational media, learning content |
+| Health &amp; Wellness | health and wellness podcast, mental health media, wellness content |
+| Food Insecurity | food insecurity awareness, hunger podcast, food justice media |</p>
+<h3 id="47-shows-listing-shows">4.7 Shows Listing — <code>/shows/</code></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Browse all POC programming</td>
+</tr>
+<tr>
+<td><strong>Target Audience</strong></td>
+<td>Podcast/vodcast listeners, content consumers</td>
+</tr>
+<tr>
+<td><strong>User Intent</strong></td>
+<td>"What shows do they produce?"</td>
+</tr>
+<tr>
+<td><strong>SEO Keywords</strong></td>
+<td>pillars of change shows, purpose-driven podcasts, social impact podcasts</td>
+</tr>
+<tr>
+<td><strong>Key Content Elements</strong></td>
+<td>Featured show spotlight, Show grid/cards with filtering by pillar, Each card: artwork, title, host, pillar tag, format (podcast/vodcast), description, CTA</td>
+</tr>
+<tr>
+<td><strong>Filters</strong></td>
+<td>By pillar, by format (podcast, vodcast, digital experience), by status (live, upcoming)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="48-show-detail-showsshow-slug">4.8 Show Detail — <code>/shows/{show-slug}/</code></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Deep dive into a specific show, drive subscriptions and listens</td>
+</tr>
+<tr>
+<td><strong>Target Audience</strong></td>
+<td>Podcast listeners, potential subscribers</td>
+</tr>
+<tr>
+<td><strong>User Intent</strong></td>
+<td>"Tell me about this show and let me listen"</td>
+</tr>
+<tr>
+<td><strong>SEO Keywords</strong></td>
+<td>(varies per show — see below)</td>
+</tr>
+<tr>
+<td><strong>Key Content Elements</strong></td>
+<td>Show artwork + hero, Description, Host bio + photo, Episode list with player, Subscribe links (Apple, Spotify, YouTube, RSS), Season/schedule info, Related pillar info, Social sharing</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Show-Specific Keywords:</strong>
+| Show | Target Keywords |
+|---|---|
+| Pride This Way | pride this way podcast, Soraya Vivian, LGBTQ+ travel podcast, pride events podcast, globe-trotting pride |
+| Court on Trial | court on trial podcast, Cris Wright, justice podcast, legal system podcast |</p>
+<h3 id="49-episode-detail-showsshow-slugepisodesepisode-slug">4.9 Episode Detail — <code>/shows/{show-slug}/episodes/{episode-slug}/</code></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Individual episode page for SEO and deep linking</td>
+</tr>
+<tr>
+<td><strong>Target Audience</strong></td>
+<td>Search visitors, social media referrals</td>
+</tr>
+<tr>
+<td><strong>User Intent</strong></td>
+<td>"I want to listen to this specific episode"</td>
+</tr>
+<tr>
+<td><strong>SEO Keywords</strong></td>
+<td>episode title + show name, guest names, topic keywords</td>
+</tr>
+<tr>
+<td><strong>Key Content Elements</strong></td>
+<td>Embedded player, Episode description, Show notes, Transcript (for SEO and accessibility), Guest bios, Related episodes, Subscribe CTA</td>
+</tr>
+</tbody>
+</table>
+<h3 id="410-impact-impact">4.10 Impact — <code>/impact/</code></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Demonstrate measurable social impact, build donor/partner trust</td>
+</tr>
+<tr>
+<td><strong>Target Audience</strong></td>
+<td>Potential donors, nonprofit partners, CSR professionals</td>
+</tr>
+<tr>
+<td><strong>User Intent</strong></td>
+<td>"What real impact are they making?"</td>
+</tr>
+<tr>
+<td><strong>SEO Keywords</strong></td>
+<td>pillars of change impact, storytelling social impact, content philanthropy, media for good</td>
+</tr>
+<tr>
+<td><strong>Key Content Elements</strong></td>
+<td>How the model works (visual flow diagram), Total impact metrics, Impact breakdown by pillar, UPI Loan Fund partnership detail, Beneficiary stories, Quarterly donation reports, "Get Involved" CTAs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="411-impact-reports-impactreports">4.11 Impact Reports — <code>/impact/reports/</code></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Transparency and accountability</td>
+</tr>
+<tr>
+<td><strong>Target Audience</strong></td>
+<td>Partners, donors, press</td>
+</tr>
+<tr>
+<td><strong>Key Content Elements</strong></td>
+<td>Quarterly/annual reports (PDF + web), Financial breakdowns, Community stories, Partner acknowledgments</td>
+</tr>
+</tbody>
+</table>
+<h3 id="412-blog-blog">4.12 Blog — <code>/blog/</code></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>SEO content hub, thought leadership, audience engagement</td>
+</tr>
+<tr>
+<td><strong>Target Audience</strong></td>
+<td>Organic search visitors, newsletter subscribers</td>
+</tr>
+<tr>
+<td><strong>User Intent</strong></td>
+<td>Informational queries related to the five pillars</td>
+</tr>
+<tr>
+<td><strong>SEO Keywords</strong></td>
+<td>Long-tail keywords across all five pillars</td>
+</tr>
+<tr>
+<td><strong>Key Content Elements</strong></td>
+<td>Article feed with featured post, Category filtering (by pillar), Author attribution, Related episodes/shows, Social sharing, Newsletter CTA</td>
+</tr>
+<tr>
+<td><strong>Content Types</strong></td>
+<td>Behind-the-scenes, Pillar deep-dives, Guest op-eds, Impact stories, Industry thought pieces</td>
+</tr>
+</tbody>
+</table>
+<h3 id="413-press-press">4.13 Press — <code>/press/</code></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Serve journalists and media professionals</td>
+</tr>
+<tr>
+<td><strong>Target Audience</strong></td>
+<td>Journalists, bloggers, media outlets</td>
+</tr>
+<tr>
+<td><strong>User Intent</strong></td>
+<td>"I need information about POC for a story"</td>
+</tr>
+<tr>
+<td><strong>SEO Keywords</strong></td>
+<td>pillars of change press, pillars of change media news</td>
+</tr>
+<tr>
+<td><strong>Key Content Elements</strong></td>
+<td>Press releases (chronological), Media kit download (logos, bios, photos), Press coverage / "In the News", Media contact information, Key facts &amp; figures</td>
+</tr>
+</tbody>
+</table>
+<h3 id="414-contact-contact">4.14 Contact — <code>/contact/</code></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Enable inquiries from all audience segments</td>
+</tr>
+<tr>
+<td><strong>Target Audience</strong></td>
+<td>Everyone — partners, press, listeners, nonprofits</td>
+</tr>
+<tr>
+<td><strong>User Intent</strong></td>
+<td>"I want to reach out"</td>
+</tr>
+<tr>
+<td><strong>SEO Keywords</strong></td>
+<td>contact pillars of change, pillars of change partnerships</td>
+</tr>
+<tr>
+<td><strong>Key Content Elements</strong></td>
+<td>General contact form with inquiry type dropdown, Specific pathways: Partnership, Press, Content Pitch, Office location (New York), Social media links, FAQ section</td>
+</tr>
+</tbody>
+</table>
+<h3 id="415-legal-pages">4.15 Legal Pages</h3>
+<ul>
+<li><strong><code>/privacy-policy/</code></strong> — Standard privacy policy</li>
+<li><strong><code>/terms-of-service/</code></strong> — Terms of use</li>
+</ul>
+<hr />
+<h2 id="5-user-journey-maps">5. User Journey Maps</h2>
+<h3 id="journey-1-new-visitor-general-discovery">Journey 1: New Visitor / General Discovery</h3>
+<pre><code>Search/Social/PR Link
+    → Homepage (/)
+        → Reads mission, sees five pillars
+        → Clicks &quot;Learn More&quot; on a pillar
+            → Pillar page (/pillars/social-justice/)
+                → Sees related shows
+                → Clicks show
+                    → Show page (/shows/pride-this-way/)
+                        → Listens to episode
+                        → Subscribes on Spotify/Apple
+        OR
+        → Scrolls to shows section
+            → Clicks &quot;Pride This Way&quot;
+                → Show detail → Episode → Subscribe
+</code></pre>
+<h3 id="journey-2-potential-partner-sponsor">Journey 2: Potential Partner / Sponsor</h3>
+<pre><code>Direct URL / Referral / LinkedIn
+    → Homepage (/)
+        → About (/about/)
+            → Reads mission + business model
+            → Team (/about/team/) — evaluates credibility
+            → Partners (/about/partners/) — sees existing partnerships
+        → Impact (/impact/)
+            → Reviews metrics and reports
+            → Downloads impact report
+        → Contact (/contact/partnerships/)
+            → Submits partnership inquiry form
+</code></pre>
+<h3 id="journey-3-podcast-listener-referred">Journey 3: Podcast Listener (Referred)</h3>
+<pre><code>Podcast App / Social Media / Word of Mouth
+    → Show Detail (/shows/pride-this-way/)
+        → Browses episodes
+        → Clicks specific episode
+            → Episode page (/shows/pride-this-way/episodes/ep-01-yorkshire/)
+                → Listens via embedded player
+                → Reads transcript/show notes
+                → Subscribes via platform links
+        → Explores other shows
+            → Shows listing (/shows/)
+        → Learns about mission
+            → Impact (/impact/) or About (/about/)
+</code></pre>
+<h3 id="journey-4-nonprofit-community-organization">Journey 4: Nonprofit / Community Organization</h3>
+<pre><code>Search / Referral / PR Coverage
+    → Homepage (/)
+        → Impact (/impact/)
+            → Reads how the model works
+            → Reads beneficiary stories
+            → Reviews UPI Loan Fund partnership
+        → Relevant Pillar page (/pillars/food-insecurity/)
+            → Sees funding going to this cause area
+        → Contact (/contact/)
+            → Submits inquiry about receiving support
+</code></pre>
+<h3 id="journey-5-journalist-press">Journey 5: Journalist / Press</h3>
+<pre><code>PR Coverage Link / Direct Search
+    → Press (/press/)
+        → Downloads media kit
+        → Reads press releases
+        → Finds media contact
+    → About (/about/) — background research
+    → Impact (/impact/) — story angles on impact
+    → Show Detail — for show-specific coverage
+    → Contact (/contact/press/) — submits press inquiry
+</code></pre>
+<h3 id="journey-6-content-creator-pitch-submission">Journey 6: Content Creator / Pitch Submission</h3>
+<pre><code>Industry Network / Social Media
+    → Homepage (/) or Shows (/shows/)
+        → Understands what POC produces
+        → About (/about/) — reads about mission alignment
+        → Contact (/contact/pitch/)
+            → Submits content pitch with show concept
+</code></pre>
+<hr />
+<h2 id="6-content-hierarchy-by-page">6. Content Hierarchy by Page</h2>
+<h3 id="homepage-content-priority-top-bottom">Homepage Content Priority (Top → Bottom)</h3>
+<ol>
+<li><strong>Hero</strong> — Mission statement + primary CTA ("Watch Now" / "Listen Now")</li>
+<li><strong>Five Pillars</strong> — Visual showcase, immediate brand understanding</li>
+<li><strong>Featured Shows</strong> — Pride This Way and Court on Trial cards</li>
+<li><strong>Impact Stats</strong> — Key metrics (donations, partners, communities served)</li>
+<li><strong>Latest Content</strong> — 3 most recent episodes/posts</li>
+<li><strong>Partners</strong> — UPI Loan Fund + key logos</li>
+<li><strong>Newsletter</strong> — Email capture</li>
+<li><strong>Footer</strong> — Full navigation + social links</li>
+</ol>
+<h3 id="show-detail-content-priority">Show Detail Content Priority</h3>
+<ol>
+<li><strong>Show Hero</strong> — Artwork, title, host, format, CTA to listen</li>
+<li><strong>Subscribe Bar</strong> — Platform links (Apple, Spotify, YouTube, RSS)</li>
+<li><strong>Latest Episode</strong> — Featured/most recent with embedded player</li>
+<li><strong>Episode List</strong> — Full chronological list with thumbnails</li>
+<li><strong>Schedule/Cities</strong> — (for Pride This Way) upcoming filming locations</li>
+<li><strong>Host Bio</strong> — Photo, bio, social links</li>
+<li><strong>Related Pillar</strong> — Connection to the mission</li>
+<li><strong>Related Shows</strong> — Cross-promotion</li>
+</ol>
+<h3 id="impact-page-content-priority">Impact Page Content Priority</h3>
+<ol>
+<li><strong>How It Works</strong> — Visual flow diagram (Create → Engage → Revenue → Give → Impact)</li>
+<li><strong>Headline Metrics</strong> — Total donated, nonprofits supported, communities reached</li>
+<li><strong>Pillar Breakdown</strong> — Impact by each of the five pillars</li>
+<li><strong>UPI Loan Fund</strong> — Partnership detail and credibility</li>
+<li><strong>Beneficiary Stories</strong> — Real community voices</li>
+<li><strong>Reports</strong> — Links to quarterly/annual reports</li>
+<li><strong>Get Involved</strong> — CTAs for different audience segments</li>
+</ol>
+<hr />
+<h2 id="7-taxonomy-tagging-system">7. Taxonomy &amp; Tagging System</h2>
+<h3 id="primary-taxonomies">Primary Taxonomies</h3>
+<h4 id="1-pillar-category">1. Pillar (Category)</h4>
+<p>Every piece of content is tagged to one or more pillars:
+| Slug | Display Name | Color (suggested) |
+|---|---|---|
+| <code>human-rights</code> | Human Rights | Purple |
+| <code>social-justice</code> | Social Justice | Red/Orange |
+| <code>education</code> | Education | Blue |
+| <code>health-and-wellness</code> | Health &amp; Wellness | Green |
+| <code>food-insecurity</code> | Food Insecurity | Yellow/Gold |</p>
+<h4 id="2-show-category">2. Show (Category)</h4>
+<table>
+<thead>
+<tr>
+<th>Slug</th>
+<th>Display Name</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pride-this-way</code></td>
+<td>Pride This Way</td>
+<td>Live</td>
+</tr>
+<tr>
+<td><code>court-on-trial</code></td>
+<td>Court on Trial</td>
+<td>Live</td>
+</tr>
+<tr>
+<td><code>{future-show}</code></td>
+<td>(Scalable for new shows)</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-content-type-category">3. Content Type (Category)</h4>
+<table>
+<thead>
+<tr>
+<th>Slug</th>
+<th>Display Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>podcast</code></td>
+<td>Podcast</td>
+</tr>
+<tr>
+<td><code>vodcast</code></td>
+<td>Vodcast</td>
+</tr>
+<tr>
+<td><code>article</code></td>
+<td>Article</td>
+</tr>
+<tr>
+<td><code>press-release</code></td>
+<td>Press Release</td>
+</tr>
+<tr>
+<td><code>impact-report</code></td>
+<td>Impact Report</td>
+</tr>
+<tr>
+<td><code>digital-experience</code></td>
+<td>Digital Experience</td>
+</tr>
+</tbody>
+</table>
+<h3 id="secondary-taxonomies-tags">Secondary Taxonomies (Tags)</h3>
+<h4 id="topics-themes">Topics / Themes</h4>
+<p>Free-form tags for granular content discovery:
+- <code>lgbtq+</code>, <code>pride-events</code>, <code>travel</code>, <code>music</code>, <code>activism</code>, <code>legal-system</code>, <code>criminal-justice</code>, <code>mental-health</code>, <code>nutrition</code>, <code>food-access</code>, <code>education-equity</code>, <code>storytelling</code>, <code>philanthropy</code></p>
+<h4 id="people">People</h4>
+<p>Tag content by people featured:
+- <code>soraya-vivian</code>, <code>cris-wright</code>, <code>hj-taylor</code>, <code>jack-horlock</code>, <code>mandy-goldberg</code></p>
+<h4 id="location">Location</h4>
+<p>For location-based content (especially Pride This Way):
+- Cities: <code>new-york</code>, <code>london</code>, <code>miami-beach</code>, <code>berlin</code>, <code>amsterdam</code>, <code>ibiza</code>, etc.
+- Regions: <code>us</code>, <code>uk</code>, <code>europe</code></p>
+<h3 id="filter-matrix">Filter Matrix</h3>
+<p>Users should be able to filter/browse content through combinations:</p>
+<table>
+<thead>
+<tr>
+<th>Filter</th>
+<th>Available On</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>By Pillar</td>
+<td>Shows listing, Blog, Impact, Pillar pages</td>
+</tr>
+<tr>
+<td>By Show</td>
+<td>Episodes, Blog</td>
+</tr>
+<tr>
+<td>By Content Type</td>
+<td>Blog, Press</td>
+</tr>
+<tr>
+<td>By Location</td>
+<td>Pride This Way episodes/schedule</td>
+</tr>
+<tr>
+<td>By Person/Host</td>
+<td>Shows, Team</td>
+</tr>
+</tbody>
+</table>
+<h3 id="url-pattern-for-taxonomy-pages">URL Pattern for Taxonomy Pages</h3>
+<pre><code>/blog/category/{pillar-slug}/        → All blog posts for a pillar
+/blog/category/{content-type}/       → All blog posts by type
+/shows/?pillar={pillar-slug}         → Shows filtered by pillar
+/pillars/{pillar-slug}/              → All content for a pillar
+</code></pre>
+<hr />
+<h2 id="8-technical-recommendations">8. Technical Recommendations</h2>
+<h3 id="url-structure-rules">URL Structure Rules</h3>
+<ul>
+<li>All lowercase, hyphenated slugs</li>
+<li>No trailing slashes (or enforce consistent trailing slashes)</li>
+<li>Maximum 3 levels of depth</li>
+<li>Canonical URLs on every page</li>
+<li>Breadcrumb navigation reflecting hierarchy</li>
+</ul>
+<h3 id="structured-data-json-ld">Structured Data (JSON-LD)</h3>
+<p>Implement on every page:
+- <code>Organization</code> — sitewide
+- <code>WebSite</code> with <code>SearchAction</code> — homepage
+- <code>BreadcrumbList</code> — all inner pages
+- <code>PodcastSeries</code> — show pages
+- <code>PodcastEpisode</code> — episode pages
+- <code>Article</code> — blog posts
+- <code>Person</code> — team/host pages
+- <code>FAQPage</code> — contact page FAQ section</p>
+<h3 id="internal-linking-strategy">Internal Linking Strategy</h3>
+<ul>
+<li>Every show page links to its pillar</li>
+<li>Every pillar page links to related shows and blog posts</li>
+<li>Every episode links to its show, pillar, and related episodes</li>
+<li>Blog posts link to relevant shows and pillars</li>
+<li>Impact page links to pillar pages with per-pillar metrics</li>
+<li>Breadcrumbs on every page for crawlability</li>
+</ul>
+<h3 id="pagination-scalability">Pagination &amp; Scalability</h3>
+<ul>
+<li>Episode lists: paginated (10 per page) with "Load More"</li>
+<li>Blog: paginated (12 per page) with category filtering</li>
+<li>RSS feeds: per show and sitewide blog</li>
+</ul>
+<hr />
+<h2 id="9-content-governance">9. Content Governance</h2>
+<h3 id="content-calendar-alignment">Content Calendar Alignment</h3>
+<table>
+<thead>
+<tr>
+<th>Pillar</th>
+<th>Content Frequency</th>
+<th>Tied To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Human Rights</td>
+<td>Weekly during Pride season, biweekly otherwise</td>
+<td>Pride This Way episodes, UN dates</td>
+</tr>
+<tr>
+<td>Social Justice</td>
+<td>Biweekly</td>
+<td>Court on Trial episodes, awareness months</td>
+</tr>
+<tr>
+<td>Education</td>
+<td>Monthly</td>
+<td>Blog series, partner spotlights</td>
+</tr>
+<tr>
+<td>Health &amp; Wellness</td>
+<td>Monthly</td>
+<td>Blog series, awareness months</td>
+</tr>
+<tr>
+<td>Food Insecurity</td>
+<td>Monthly</td>
+<td>Blog series, seasonal drives</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ownership">Ownership</h3>
+<table>
+<thead>
+<tr>
+<th>Content Area</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Show pages &amp; episodes</td>
+<td>Production team (Mandy Goldberg)</td>
+</tr>
+<tr>
+<td>Blog</td>
+<td>Content/editorial team</td>
+</tr>
+<tr>
+<td>Impact reports</td>
+<td>Operations / Finance</td>
+</tr>
+<tr>
+<td>Press releases</td>
+<td>Communications</td>
+</tr>
+<tr>
+<td>Site pages (About, Pillars)</td>
+<td>Marketing / Founder</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-migration-implementation-priority">10. Migration &amp; Implementation Priority</h2>
+<h3 id="phase-1-launch-critical-weeks-1-2">Phase 1 — Launch Critical (Weeks 1-2)</h3>
+<ol>
+<li>Homepage (<code>/</code>)</li>
+<li>About (<code>/about/</code>)</li>
+<li>Shows listing (<code>/shows/</code>)</li>
+<li>Show detail pages (Pride This Way, Court on Trial)</li>
+<li>Contact (<code>/contact/</code>)</li>
+<li>Privacy Policy &amp; Terms</li>
+<li>robots.txt &amp; sitemap.xml</li>
+<li>Google Search Console setup</li>
+</ol>
+<h3 id="phase-2-growth-foundation-weeks-3-6">Phase 2 — Growth Foundation (Weeks 3-6)</h3>
+<ol>
+<li>Five pillar pages (<code>/pillars/*</code>)</li>
+<li>Impact page (<code>/impact/</code>)</li>
+<li>Episode detail pages with transcripts</li>
+<li>Press page (<code>/press/</code>)</li>
+<li>Blog launch with first 5 posts</li>
+<li>Newsletter integration</li>
+</ol>
+<h3 id="phase-3-scale-optimize-months-2-6">Phase 3 — Scale &amp; Optimize (Months 2-6)</h3>
+<ol>
+<li>Team page (<code>/about/team/</code>)</li>
+<li>Partners page (<code>/about/partners/</code>)</li>
+<li>Impact reports section</li>
+<li>Blog content ramp-up (2-4 posts/month)</li>
+<li>Beneficiary stories</li>
+<li>Advanced filtering and search</li>
+<li>A/B testing on CTAs and conversion paths</li>
+</ol>
+</div>
+</body>
+</html>
